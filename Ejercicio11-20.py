@@ -1,11 +1,11 @@
 """ Calcula el área de un rectángulo Y pide bvase y altura al usuario """
 
-# base = int(input("Ingresa la base: "))
-# altura = int(input("Ingresa la altura: "))
+base = int(input("Ingresa la base: "))
+altura = int(input("Ingresa la altura: "))
 
-# area = base*altura
+area = base*altura
 
-# print('Ejercicio11: ', area)
+print('Ejercicio11: ', area)
 
 """ Convierte un número entero a cadena """
 num=12
