@@ -60,3 +60,38 @@ conteos = list(map(contar, palabras))
 print('Ejercicio 85: ')
 print(f'Primera lista: {palabras}')
 print(f'Segunda lista: {conteos}')
+
+""" Elevar un número al cuadrado utilizando lmbda """
+
+print('Ejercicio 86:')
+cuadrado = lambda x : x ** 2    # x es el parametro que pide (en este caso 5)
+print(cuadrado(5))
+
+
+""" Sumar dos números utilizando lambda """
+
+print('Ejercicio 87:')
+suma = lambda x, y : x + y
+print(suma(5,2))
+
+
+""" Verifica si un número es par usando lambda """
+
+print('Ejercicio 88:')
+par = lambda x : x % 2 == 0
+print(par(6))
+
+""" Comprobar si una palabra es palíndromo usando lambda """
+
+print('Ejercicio 89:')
+palabra = lambda x : x == x[::-1]
+print(palabra('radar'))
+
+""" Duplicar cada elemento de una lista usando map() lambda """
+
+numeros = [1,2,3,4,5]
+duplicados = list(map(lambda x : x * 2, numeros))
+
+print('Ejercicio 90: ')
+print(numeros)
+print(duplicados)
