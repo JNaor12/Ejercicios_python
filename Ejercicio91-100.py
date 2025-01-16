@@ -49,3 +49,110 @@ print('Ejercicio 95: ')
 print(lista)
 print(tipoListas)
 
+""" Crear una excepción que me ayude a determinar si el índice de una lista esta fuera de rango """
+
+lista = [1,2,3]
+
+print('Ejercicio 96: ')
+
+rango = int(input("¿Que índice quieres ver? "))
+
+try:
+    if rango != 0:
+        print(lista[rango-1])
+    else:
+        print("Error, el índice no existe")
+except IndexError:
+    print("Error, el índice no existe")
+
+
+""" Hacer una función para crear un archivo de texto plano """
+
+nombre = input('Escribe el nombre del archivo con su extensión (Ejemplo: index.html): ')
+
+def crear_archivo(nombre_archivo):
+    with open(nombre_archivo, 'w'):      # w-> lectura y escritura
+        pass
+
+crear_archivo(nombre)
+print('Ejercicio 97: Archivo creado con éxito')
+
+""" Escribir en un archivo html: Hola que tal ? """
+
+def escribir(nombre_archivo, contenido):
+    with open(nombre_archivo, 'w') as archivo:
+        archivo.write(contenido)
+
+escribir('francia.html', 'Hola que tal ?')
+
+""" Crea un programa que me permita crear, leer y agregar información en un archivo .txt """
+
+print('Ejercicio 99: ')
+class Archivo:
+
+    def __init__(self):
+        self.nombre_archivo = ""
+        self.contenido = ""
+    
+    def set_nombre_archivo(self, nombre):
+        self.nombre_archivo = nombre
+    
+    def set_contenido(self, contenido):
+        self.contenido = contenido
+    
+    def crear_archivo(self):
+        with open(self.nombre_archivo, 'w'):
+            pass
+    
+    def escribir(self):
+        with open(self.nombre_archivo, 'w') as archivo:
+            archivo.write(self.contenido)
+    
+    def leer(self):
+        with open(self.nombre_archivo, 'r') as archivo:
+            info = archivo.read()
+        return info
+
+file = Archivo()
+file.set_nombre_archivo('index.txt')
+file.set_contenido('Hola que tal')
+file.crear_archivo()
+file.escribir()
+
+print(file.leer())
+
+""" Conectarte a una base de datos mysql, hacer una consulta a una tabla y mostrar la información en la consola 
+    
+    pip install mysql-connector-python 
+"""
+import mysql.connector
+
+class Conexion:
+    def conectar(self):
+        conexion = mysql.connector.connect(
+            host = 'localhost',
+            user = 'root',
+            password = '',
+            database = 'visitas'
+        )
+        return conexion
+
+class Visitas(Conexion):
+    def consulta_select(self):
+        conexion = self.conectar()
+        sql = "SELECT id, paterno FROM t_visitas"
+        cursor = conexion.cursor()
+        cursor.execute(sql)
+        registros = cursor.fetchall()
+        cursor.close()
+        conexion.close()
+        return registros
+
+    def imprimir_datos(self):
+        datos = self.consulta_select()
+        for fila in datos:
+            print(fila)
+
+visita = Visitas()
+visita.imprimir_datos()
+
