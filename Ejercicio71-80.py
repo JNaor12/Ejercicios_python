@@ -142,3 +142,153 @@ print('Ejercicio 75: ')
 print(coche1.__dict__)
 coche1.avanzar(3000)
 print(coche1.__dict__)
+
+""" Crea una clase animal con los atributos:
+        especie
+        nombre
+    La calse debe tener los métodos:
+    init()
+    hablar()
+    el método hablar nos retorna una palabra según la interpretación sdel sonido como un perro sería "guau"
+"""
+print('Ejercicio 76: ')
+class Animal:
+    def __init__(self, especie, name):
+        self.especie = especie
+        self.name = name
+    
+    def hablar(self):
+        if self.especie.lower() == 'perro':
+            print('guau')
+        elif self.especie.lower() == 'gato':
+            print('Miau')
+        else:
+            print(f'No se que sonido hace un {self.especie}')
+    
+perro = Animal('perro', 'Iron')
+
+gato = Animal('gato', 'Felipe')
+
+perro.hablar()
+gato.hablar()
+
+print(perro.__dict__)
+print(gato.__dict__)
+
+""" Crea una lista llamada Persona.
+    con los atributos: nombre ,dad
+    **Un constructor, donde los datos pueden estar vacíos
+    **Setters y getters para cada atributo
+    **mostrar(): Muestra los datos de la persona
+    **esMayorDeEdad(): Devuelve un valor lógico indicando si es o no mayor de edad
+"""
+print('Ejercicio 77:')
+class Persona:
+    def __init__(self, nombre=None, edad=None):     #El =None es oara que puedan estar vacíos los parametros
+        self._nombre = nombre       #al poner self._nombre el _ es un modificador de acceso
+        self._edad = edad
+    
+    @property                       #Decorador property
+    def nombre(self):
+        return self._nombre            #getter
+    
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        self._nombre = nuevo_nombre    #setter
+
+    @property
+    def edad(self):
+        return self._edad
+    
+    @edad.setter
+    def edad(self, nueva_edad):
+        self._edad = nueva_edad
+
+    def mostrar(self):
+        print(self.__dict__)
+
+    def mayor_edad(self):
+        if self._edad >= 18:
+            return True
+        else:
+            return False
+
+bruno = Persona('Bruno')
+bruno.mostrar()
+
+aser = Persona('Aser',28)
+print(aser.mayor_edad())
+aser.mayor_edad()
+aser.mostrar()
+
+""" Crea una clase Persona y otra clase Estudiante
+    La clase Persona tiene el atributo nombre y el método mostrarNombre()
+    La clase Estudiante debe heredar de la clase Persona y utilizar el método mostrar_nombre() de la clase Persona
+"""
+
+print('Ejercicio 78: ')
+
+class Persona:
+
+    def __init__(self, nombre):
+        self.nombre = nombre
+    
+    def mostrar_nombre(self):
+        print(f'El nombre es: {self.nombre}')
+    
+class Estudiante(Persona):
+
+    def __init__(self, nombre):
+        super().__init__(nombre)
+    
+estudiante1 = Estudiante('Jorge')
+estudiante1.mostrar_nombre()
+
+
+""" Representa una cuenta bancaria con deposito y retiro debe haber un titular y un saldo 
+    Usa POO
+"""
+
+class Cuenta:
+
+    def __init__(self, titular, saldo):
+        self.titular = titular
+        self.saldo = saldo
+    
+    def depositar(self, cantidad):
+        cantidad = float(input("Cantidad que desee depositar: "))
+        self.saldo += cantidad
+        print(f'Se ha depositado {cantidad} €')
+        print(f'Saldo actual: {self.saldo} €')
+    
+    def retirar(self, cantidad):
+        cantidad = float(input("Cantidad que desee retirar: "))
+        self.saldo -= cantidad
+        print(f'Se ha retirado {cantidad} €')
+        print(f'Saldo actual: {self.saldo} €')
+
+    def mostrar(self):
+        print(self.__dict__)
+
+
+cuenta1 = Cuenta('Iván', 500)
+print('Ejercicio 79: ')
+cuenta1.mostrar()
+cuenta1.depositar(1000)
+cuenta1.retirar(300)
+
+""" Obtener la cantidad de memoria ram en mi pc 
+    pip install psutil      Libreria externa
+"""
+
+import psutil
+
+def obtener_ram():
+    memoria = psutil.virtual_memory()
+    memoria_total = memoria.total / (1024 ** 3)
+    return memoria_total
+
+memoria = obtener_ram()
+
+print('Ejercicio 80: ')
+print(f'Total de memoria ram = {memoria} GB')
