@@ -17,7 +17,7 @@ def convertir_entero(lista):
 lista = ["1", "2", "3", "4"]
 
 enteros = list(map(convertir_entero, lista))
-print('Ejercicio 83: ')
+print('Ejercicio 82: ')
 print(lista)
 print(enteros)
 
@@ -29,7 +29,7 @@ def longitud(palabra):
 animales = ["gato", "perro", "Jirafa"]
 
 longitudes = list(map(longitud, animales))
-print('Ejercicio 84: ')
+print('Ejercicio 83: ')
 print(animales)
 print(longitudes)
 
@@ -43,7 +43,20 @@ lista2 = [5,6,7,8]
 
 res = list(map(suma_cuadrados, lista1, lista2))
 
-print('Ejercicio 85: ')
+print('Ejercicio 84: ')
 print(f'Primera lista: {lista1}')
 print(f'Segunda lista: {lista2}')
 print(f'Resultado: {res}')
+
+""" Contar el número de vocales en una lista de palabras utilizando map """
+
+def contar(palabra):
+    return sum(1 for letra in palabra if letra.lower() in 'aeiou')
+
+palabras = ['Hola ', 'mundo', 'murcielago']
+
+conteos = list(map(contar, palabras))
+
+print('Ejercicio 85: ')
+print(f'Primera lista: {palabras}')
+print(f'Segunda lista: {conteos}')
