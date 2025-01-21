@@ -1,4 +1,6 @@
 
+#   DIFICIL
+
 #  * Utilizando tu lenguaje, crea un programa capaz de ejecutar de manera
 #  * asíncrona una función que tardará en finalizar un número concreto de
 #  * segundos parametrizables. También debes poder asignarle un nombre.
