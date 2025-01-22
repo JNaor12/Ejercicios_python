@@ -1,7 +1,6 @@
 
 #   DIFICIL
 
-
 #  * EJERCICIO:
 #  * ¡La Casa del Dragón ha finalizado y no volverá hasta 2026!
 #  * ¿Alguien se entera de todas las relaciones de parentesco
